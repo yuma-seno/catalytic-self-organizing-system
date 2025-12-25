@@ -65,8 +65,8 @@ def train_mnist_pure():
     
     # 設定
     INPUT_DIM = 28 * 28
-    HIDDEN_DIM = 64 # 一般的なMLP(512~1024)に比べて圧倒的に小さい
-    EPOCHS = 5
+    HIDDEN_DIM = 32 # 一般的なMLP(512~1024)に比べて圧倒的に小さい
+    EPOCHS = 10
     BATCH_SIZE = 128
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -84,7 +84,7 @@ def train_mnist_pure():
     test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
     
     # モデル
-    model = CSOS_MNIST(input_dim=INPUT_DIM, num_basis=HIDDEN_DIM, steps=3).to(device)
+    model = CSOS_MNIST(input_dim=INPUT_DIM, num_basis=HIDDEN_DIM, steps=1).to(device)
     
     optimizer = optim.Adam(model.parameters(), lr=0.002)
     criterion = nn.CrossEntropyLoss()

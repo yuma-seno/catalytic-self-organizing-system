@@ -31,7 +31,7 @@ def train_mnist_mlp() -> None:
     print("\n=== Baseline: MLP on MNIST ===")
 
     INPUT_DIM = 28 * 28
-    EPOCHS = 5
+    EPOCHS = 10
     BATCH_SIZE = 128
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
